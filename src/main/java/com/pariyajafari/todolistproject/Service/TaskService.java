@@ -14,14 +14,14 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
-    public Task addTask(Task newTask){
-        return taskRepository.save(newTask);
+    public void addTask(Task newTask){
+        taskRepository.save(newTask);
     }
 
-    public Task updateTaskStatusById(Long id, Task updatedTask){
+    public void updateTaskStatusById(Long id, Task updatedTask){
         Task existingTask = getTaskById(id);
         existingTask.setStatus(updatedTask.getStatus());
-        return taskRepository.save(existingTask);
+        taskRepository.save(existingTask);
     }
 
     public List<Task> getAllTasks(){
