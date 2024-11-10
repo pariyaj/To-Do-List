@@ -1,4 +1,4 @@
-package com.pariyajafari.todolistproject.Model;
+package com.pariyajafari.todolistproject.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

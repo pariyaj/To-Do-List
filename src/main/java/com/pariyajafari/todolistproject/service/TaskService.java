@@ -1,8 +1,8 @@
-package com.pariyajafari.todolistproject.Service;
+package com.pariyajafari.todolistproject.service;
 
-import com.pariyajafari.todolistproject.Model.Status;
-import com.pariyajafari.todolistproject.Model.Task;
-import com.pariyajafari.todolistproject.Repository.TaskRepository;
+import com.pariyajafari.todolistproject.model.Status;
+import com.pariyajafari.todolistproject.model.Task;
+import com.pariyajafari.todolistproject.repository.TaskRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.pariyajafari.todolistproject;
 
-import com.pariyajafari.todolistproject.Model.Task;
-import com.pariyajafari.todolistproject.Service.TaskService;
+import com.pariyajafari.todolistproject.model.Task;
+import com.pariyajafari.todolistproject.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +32,7 @@ public class Controller {
         return ResponseEntity.ok(taskService.updateTaskStatusById(id, updatedTask.getStatus()));
     }
 
-    @PostMapping("/add")
+    @PostMapping("/task/add")
     public ResponseEntity<Task> createTask(@RequestBody Task newTask){
         Task savedTask = taskService.addTask(newTask);
         return ResponseEntity.ok(savedTask);
