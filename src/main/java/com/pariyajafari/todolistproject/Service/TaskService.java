@@ -1,5 +1,6 @@
 package com.pariyajafari.todolistproject.Service;
 
+import com.pariyajafari.todolistproject.Model.Status;
 import com.pariyajafari.todolistproject.Model.Task;
 import com.pariyajafari.todolistproject.Repository.TaskRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -14,14 +15,14 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
-    public void addTask(Task newTask){
-        taskRepository.save(newTask);
+    public Task addTask(Task task){
+        return taskRepository.save(task);
     }
 
-    public void updateTaskStatusById(Long id, Task updatedTask){
+    public Task updateTaskStatusById(Long id, Status status){
         Task existingTask = getTaskById(id);
-        existingTask.setStatus(updatedTask.getStatus());
-        taskRepository.save(existingTask);
+        existingTask.setStatus(status);
+        return taskRepository.save(existingTask);
     }
 
     public List<Task> getAllTasks(){
