@@ -27,13 +27,12 @@ public class Controller {
         return ResponseEntity.ok(task);
     }
 
-    @PutMapping("/task/updatestatus/{id}")
+    @PutMapping("/task/update/{id}")
     public ResponseEntity<Task> updateTaskStatus(@PathVariable Long id, @RequestBody Task updatedTask){
-        Task task = taskService.updateTaskStatusById(id, updatedTask.getStatus());
-        return ResponseEntity.ok(task);
+        return ResponseEntity.ok(taskService.updateTaskStatusById(id, updatedTask.getStatus()));
     }
 
-    @PostMapping("/addtask")
+    @PostMapping("/add")
     public ResponseEntity<Task> createTask(@RequestBody Task newTask){
         Task savedTask = taskService.addTask(newTask);
         return ResponseEntity.ok(savedTask);

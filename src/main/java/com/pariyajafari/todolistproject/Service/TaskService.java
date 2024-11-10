@@ -19,9 +19,9 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public Task updateTaskStatusById(Long id, Status status){
+    public Task updateTaskStatusById(Long id, Status newStatus){
         Task existingTask = getTaskById(id);
-        existingTask.setStatus(status);
+        existingTask.setStatus(newStatus);
         return taskRepository.save(existingTask);
     }
 

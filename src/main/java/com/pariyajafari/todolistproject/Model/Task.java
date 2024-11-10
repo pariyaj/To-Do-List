@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public class Task {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
@@ -28,4 +29,9 @@ public class Task {
 
     @Column
     private Status status;
+
+    public Task(long id, Status status) {
+        this.id = id;
+        this.status = status;
+    }
 }
