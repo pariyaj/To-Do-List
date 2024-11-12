@@ -1,6 +1,7 @@
 package com.pariyajafari.todolistproject.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,16 +19,19 @@ public class Task {
     private long id;
 
     @Column
+    @NotNull
     private String name;
 
     @Column
     private String description;
 
     @Column
+    @NotNull
     @Temporal(TemporalType.DATE)
     private LocalDate deadline;
 
     @Column
+    @NotNull
     private Status status;
 
     public Task(long id, Status status) {
