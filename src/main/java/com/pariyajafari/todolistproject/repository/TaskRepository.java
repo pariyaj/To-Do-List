@@ -11,6 +11,6 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
     @Query(value = "SELECT t FROM tasks where t.status ="Done" , nativeQuery = true)
-    List<Task> findAllDoneTasks( @Param("status") String status);
+    List<Task> findAllByStatus( @Param("status") String status);
 
 }
