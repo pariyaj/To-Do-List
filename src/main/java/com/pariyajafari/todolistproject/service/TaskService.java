@@ -5,6 +5,7 @@ import com.pariyajafari.todolistproject.model.Task;
 import com.pariyajafari.todolistproject.repository.TaskRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -35,12 +36,8 @@ public class TaskService {
                 .orElseThrow(() -> new EntityNotFoundException("Task not found"));
     }
 
-    public List<Task> getSortedTasksByDeadline(){
-        return taskRepository.findAllSortedByDeadline();
-    }
-
     public List<Task> getSortedTasksByName(){
-        return taskRepository.findAllSortedByName();
+        return taskRepository.findAllTask(Sort.by("name"));
     }
 
 }
