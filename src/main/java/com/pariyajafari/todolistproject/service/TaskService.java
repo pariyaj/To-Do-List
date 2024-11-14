@@ -7,6 +7,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -32,6 +33,14 @@ public class TaskService {
     public Task getTaskById(Long id){
         return taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Task not found"));
+    }
+
+    public List<Task> getSortedTasksByDeadline(){
+        return taskRepository.findAllSortedByDeadline();
+    }
+
+    public List<Task> getSortedTasksByName(){
+        return taskRepository.findAllSortedByName();
     }
 
 }
