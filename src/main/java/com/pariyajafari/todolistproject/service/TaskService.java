@@ -36,7 +36,7 @@ public class TaskService {
     }
 
     public List<Task> getAllDoneTasks(){
-        return taskRepository.findAllDoneTasks();
+        return taskRepository.findAllByStatus();
     }
 
 
