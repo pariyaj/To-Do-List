@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    @Query(value = "SELECT t FROM Task t")
+    @Query("SELECT t FROM Task t")
     List<Task> findAllTask(Sort sort);
 
     @Query(value = "SELECT * FROM Task t WHERE t.name like %?s" , nativeQuery = true)
