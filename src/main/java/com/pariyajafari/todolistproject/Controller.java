@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,18 @@ public class Controller {
     public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
         Task task = taskService.getTaskById(id);
         return ResponseEntity.ok(task);
+    }
+
+    @GetMapping("/sortedtasks/{name}")
+    public ResponseEntity <List<Task>> getSortedTasksByName(@PathVariable String name) {
+        List<Task> sortedTasksByName = taskService.getSortedTasksByName();
+        return ResponseEntity.ok(sortedTasksByName);
+    }
+
+    @GetMapping("/sortedtasks/{deadline}")
+    public ResponseEntity <List<Task>> getSortedTasksByDeadline(@PathVariable LocalDate deadline) {
+        List<Task> sortedTasksByDeadline = taskService.getSortedTasksByDeadline();
+        return ResponseEntity.ok(sortedTasksByDeadline);
     }
 
     @PutMapping("/task/update/{id}")
