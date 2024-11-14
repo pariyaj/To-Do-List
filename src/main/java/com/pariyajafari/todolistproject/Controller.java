@@ -30,7 +30,7 @@ public class Controller {
 
     @GetMapping("/donetasks")
     public ResponseEntity <List<Task>> getDoneTasks() {
-        List<Task> doneTasks = taskService.getAllDoneTasks();
+        List<Task> doneTasks = taskService.getAllByStatus();
         return ResponseEntity.ok(doneTasks);
     }
 
