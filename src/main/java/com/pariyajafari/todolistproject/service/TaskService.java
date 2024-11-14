@@ -35,12 +35,9 @@ public class TaskService {
                 .orElseThrow(() -> new EntityNotFoundException("Task not found"));
     }
 
-    public List<Task> getSortedTasksByDeadline(){
-        return taskRepository.findAllSortedByDeadline();
+    public List<Task> getAllDoneTasks(){
+        return taskRepository.findAllDoneTasks();
     }
 
-    public List<Task> getSortedTasksByName(){
-        return taskRepository.findAllSortedByName();
-    }
 
 }
