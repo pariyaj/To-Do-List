@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -38,6 +39,10 @@ public class TaskService {
 
     public List<Task> getSortedTasksByName(){
         return taskRepository.findAllTask(Sort.by("name"));
+    }
+
+    public Optional<Task> getTasksByName(){
+        return taskRepository.findTaskByName();
     }
 
 }

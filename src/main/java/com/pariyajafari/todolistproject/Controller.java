@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/")
@@ -28,10 +29,16 @@ public class Controller {
         return ResponseEntity.ok(task);
     }
 
-    @GetMapping("/sortedtasks/name")
+    @GetMapping("/sortedtasks")
     public ResponseEntity <List<Task>> getSortedTasksByName() {
         List<Task> sortedTasksByName = taskService.getSortedTasksByName();
         return ResponseEntity.ok(sortedTasksByName);
+    }
+
+    @GetMapping("/task/name")
+    public ResponseEntity <Optional<Task>> getSimilarTaskByName() {
+        Optional<Task> similarTasksByName = taskService.getTasksByName();
+        return ResponseEntity.ok(similarTasksByName);
     }
 
     @PutMapping("/task/update/{id}")
