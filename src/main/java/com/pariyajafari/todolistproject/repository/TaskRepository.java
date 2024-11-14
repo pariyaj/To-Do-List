@@ -10,10 +10,7 @@ import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    @Query(value = "SELECT t FROM Task t order by deadLine" , nativeQuery = true)
-    List<Task> findAllSortedByDeadline();
-
-    @Query(value = "SELECT t FROM Task t order by name" , nativeQuery = true)
-    List<Task> findAllSortedByName();
+    @Query(value = "SELECT t FROM tasks where t.status ="Done" , nativeQuery = true)
+    List<Task> findAllDoneTasks( @Param("status") String status);
 
 }
