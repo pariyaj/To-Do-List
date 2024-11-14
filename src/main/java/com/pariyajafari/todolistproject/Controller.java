@@ -28,14 +28,14 @@ public class Controller {
         return ResponseEntity.ok(task);
     }
 
-    @GetMapping("/sortedtasks/{name}")
-    public ResponseEntity <List<Task>> getSortedTasksByName(@PathVariable String name) {
+    @GetMapping("/sortedtasks/name")
+    public ResponseEntity <List<Task>> getSortedTasksByName() {
         List<Task> sortedTasksByName = taskService.getSortedTasksByName();
         return ResponseEntity.ok(sortedTasksByName);
     }
 
-    @GetMapping("/sortedtasks/{deadline}")
-    public ResponseEntity <List<Task>> getSortedTasksByDeadline(@PathVariable LocalDate deadline) {
+    @GetMapping("/sortedtasks/deadline")
+    public ResponseEntity <List<Task>> getSortedTasksByDeadline() {
         List<Task> sortedTasksByDeadline = taskService.getSortedTasksByDeadline();
         return ResponseEntity.ok(sortedTasksByDeadline);
     }
