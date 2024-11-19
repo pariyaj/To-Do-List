@@ -27,7 +27,7 @@ public class TaskService {
     }
 
     public Task addTask(Task task){
-        kafkaTemplate.send("taskCreated", task.getId());
+        kafkaTemplate.send("taskCreated", task.getName());
         return taskRepository.save(task);
     }
 

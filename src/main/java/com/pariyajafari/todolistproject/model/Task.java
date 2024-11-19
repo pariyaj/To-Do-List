@@ -1,7 +1,6 @@
 package com.pariyajafari.todolistproject.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name:"tasks")    
 public class Task {
 
     @Id
@@ -20,19 +18,15 @@ public class Task {
     private long id;
 
     @Column
-    @NotNull
     private String name;
 
     @Column
     private String description;
 
     @Column
-    @NotNull
-    @Temporal(TemporalType.DATE)
-    private LocalDate deadline;
+    private String deadline;
 
     @Column
-    @NotNull
     private Status status;
 
     public Task(long id, Status status) {

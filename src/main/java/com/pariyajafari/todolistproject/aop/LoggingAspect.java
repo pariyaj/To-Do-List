@@ -28,3 +28,4 @@ public class LoggingAspect {
         LOGGER.info("Method " + joinPoint.getSignature().getName() + " threw an exception" );
     }
 }
+

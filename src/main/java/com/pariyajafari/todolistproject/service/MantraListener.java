@@ -15,7 +15,7 @@ public class MantraListener {
     }
 
     @KafkaListener(topics = "taskCreated", groupId = "mantraGroup")
-    public void handleTaskCreated(Long taskId){
+    public void handleTaskCreated(String taskName){
         mantraService.fetchAndSaveMantra();
     }
 }
