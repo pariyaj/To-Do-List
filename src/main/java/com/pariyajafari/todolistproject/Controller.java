@@ -14,6 +14,15 @@ import java.util.Optional;
 @RequestMapping("/")
 public class Controller {
 
+
+    public Controller() {
+    }
+
+    @GetMapping
+    public String getString() {
+        return "Hello World";
+    }
+
     @Autowired
     private TaskService taskService;
 

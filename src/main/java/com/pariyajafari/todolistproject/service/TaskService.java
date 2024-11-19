@@ -6,6 +6,7 @@ import com.pariyajafari.todolistproject.repository.TaskRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,8 +18,16 @@ public class TaskService {
 
     @Autowired
     private TaskRepository taskRepository;
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
+
+    public TaskService(TaskRepository taskRepository, KafkaTemplate<String, Long> kafkaTemplate){
+        this.taskRepository = taskRepository;
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     public Task addTask(Task task){
+        kafkaTemplate.send("taskCreated", task.getId());
         return taskRepository.save(task);
     }
 
