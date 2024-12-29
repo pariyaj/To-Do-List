@@ -6,6 +6,7 @@ import com.pariyajafari.todolistproject.repository.TaskRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -54,4 +55,9 @@ public class TaskService {
         return taskRepository.findTaskByName();
     }
 
+    @KafkaListener( id= "mantraGroup", topics = "taskCreated")
+    public String kafkaListener(Task task){
+        kafkaTemplate.send("taskCreated", task.getName());
+        return task.getName();
+    }
 }
