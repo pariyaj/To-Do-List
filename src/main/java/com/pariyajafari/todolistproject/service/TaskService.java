@@ -1,6 +1,6 @@
 package com.pariyajafari.todolistproject.service;
 
-import com.pariyajafari.todolistproject.model.Status;
+import com.pariyajafari.todolistproject.model.Enum.Status;
 import com.pariyajafari.todolistproject.model.Task;
 import com.pariyajafari.todolistproject.repository.TaskRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -10,7 +10,6 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
